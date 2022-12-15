@@ -1,6 +1,8 @@
 const { EmbedBuilder, PermissionsBitField } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const csv = require("fast-csv");
+const fs = require('fs');
+const path = require('path');
+const csv = require('fast-csv');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -8,6 +10,11 @@ module.exports = {
         .setDescription("Update the server's roles."),
     // komuta seçenekler eklemek istersen guide: https://discordjs.guide/interactions/slash-commands.html#options
     run: async (client, interaction) => {
-        interaction.reply(`🏓 Latency is **${Date.now() - interaction.createdTimestamp}**ms. API Latency is **${Math.round(client.ws.ping)}**ms`)
+        fs.createReadStream(path.resolve('./', 'Hangouts.csv'))
+            .pipe(csv.parse({ headers: true }))
+            .on('error', error => console.error(error))
+            .on('data', row => console.log(row))
+            .on('end', rowCount => console.log(`Parsed ${rowCount} rows`));
+        interaction.reply(`Done`)
     }
 };
