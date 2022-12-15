@@ -7,6 +7,6 @@ module.exports = {
     .setDescription("Pong!"),
     // komuta seçenekler eklemek istersen guide: https://discordjs.guide/interactions/slash-commands.html#options
     run: async (client, interaction) => {
-      interaction.reply(`🏓Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`)
+      interaction.reply(`🏓 Latency is **${Date.now() - interaction.createdTimestamp}**ms. API Latency is **${Math.round(client.ws.ping)}**ms`)
     }
  };
