@@ -1,5 +1,6 @@
 const { EmbedBuilder, PermissionsBitField } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
+const csv = require("fast-csv");
 
 module.exports = {
     data: new SlashCommandBuilder()
