@@ -7,6 +7,8 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
 
 let token = config.token
+let clientId = config.clientid
+let guildId = config.guildid
 
 client.commands = new Collection()
 
@@ -31,7 +33,16 @@ client.on("ready", async () => {
         } catch (error) {
             console.error(error);
         }
-    log(`${client.user.username} Aktif Edildi!`);
+    log(`Hangouts Roles has started up!`);
+
+        //delete commands
+
+    //rest.put(Routes.applicationCommands(clientId), { body: [] })
+        //.then(() => console.log('Successfully deleted all application commands.'))
+        //.catch(console.error);
+    //rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: [] })
+        //.then(() => console.log('Successfully deleted all guild commands.'))
+        //.catch(console.error);
 })
 
 //event-handler
