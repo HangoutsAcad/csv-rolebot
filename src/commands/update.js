@@ -6,10 +6,6 @@ const wait = require('node:timers/promises').setTimeout;
 
 const csvFilePath=('./Hangouts.csv')
 const csv=require('csvtojson')
-const converter=csv({
-    noheader:false,
-    ignoreColumns:/(Team|Individual|Calculator)/,
-})
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -17,17 +13,18 @@ module.exports = {
         .setDescription("Update the server's roles."),
     // https://discordjs.guide/interactions/slash-commands.html#options
     run: async (client, interaction) => {
-        csv()
+        csv({
+            ignoreColumns:/(Team|Individual|Calculator)/
+        })
             .fromFile(csvFilePath)
             .then((jsonObj)=>{
                 console.log(jsonObj);
-                interaction.reply(`Converted`)
-
+                interaction.reply(`Converted to array.`)
             })
             .on('error',(err)=>{
                 console.log(err)
-                interaction.reply(err)
+                interaction.followUp(err)
             })
-        const jsonArray=await csv().fromFile(csvFilePath);
+        const jsonArray=csv().fromFile(csvFilePath);
     }
 };

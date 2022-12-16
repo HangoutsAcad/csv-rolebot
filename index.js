@@ -22,7 +22,7 @@ readdirSync('./src/commands').forEach(async file => {
   const command = require(`./src/commands/${file}`);
   commands.push(command.data.toJSON());
   client.commands.set(command.data.name, command);
-  console.log(`${command.data.name} loaded`)
+  log(`${command.data.name} loaded`)
 })
 
 client.on("ready", async () => {
