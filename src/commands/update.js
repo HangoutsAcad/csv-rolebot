@@ -10,13 +10,13 @@ module.exports = {
         .setName("update")
         .setDescription("Update the server's roles."),
     // https://discordjs.guide/interactions/slash-commands.html#options
-    run: async (client, interaction) => {
-        await interaction.deferReply();
-        fs.createReadStream(path.resolve('./', 'Hangouts.csv'))
-            .pipe(csv.parse({ headers: true }))
-            .on('error', error => console.error(error))
-            .on('error', error => interaction.reply(`${error}`))
+    //run: async (client, interaction) => {
+        //await interaction.deferReply();
+        //fs.createReadStream(path.resolve('./', 'Hangouts.csv'))
+            //.pipe(csv.parse({ headers: true }))
+            //.on('error', error => console.error(error))
+            //.on('error', error => interaction.reply(`${error}`))
             //.on('data', row => console.log(row))
-            .on('end', rowCount => interaction.reply(`Parsed ${rowCount} rows`));
-    }
+            //on('end', rowCount => interaction.reply(`Parsed ${rowCount} rows`));
+    //}
 };
