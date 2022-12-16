@@ -17,14 +17,23 @@ module.exports = {
             ignoreColumns:/(Team|Individual|Calculator)/
         })
             .fromFile(csvFilePath)
-            .then((jsonObj)=>{
-                console.log(jsonObj);
-                interaction.reply(`Converted to array.`)
-            })
             .on('error',(err)=>{
                 console.log(err)
                 interaction.followUp(err)
             })
-        const jsonArray=csv().fromFile(csvFilePath);
+            .then((jsonObj)=>{
+                let total = 0;
+
+                for (let i = 0; i < jsonObj.length; i++) {
+                    total++;
+                }
+
+                console.log(total);
+                interaction.reply(`${total} items loaded`);
+                //interaction.reply(`Converted to array.`)
+            })
+
+        const jsonArray=await csv().fromFile(csvFilePath);
+        //await console.log(Object.values(jsonArray))
     }
 };
