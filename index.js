@@ -5,6 +5,8 @@ const { readdirSync } = require("fs")
 const moment = require("moment");
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
+var colors = require('colors');
+const pink = colors.magenta;
 
 let token = config.token
 let clientId = config.clientid
@@ -34,7 +36,7 @@ client.on("ready", async () => {
         } catch (error) {
             console.error(error);
         }
-    log(`${client.user.tag} has started up!`);
+    log(pink(`${client.user.tag}`) + ` has started up!`);
 
         //delete commands
 

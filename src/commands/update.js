@@ -1,6 +1,9 @@
 const { EmbedBuilder, PermissionsBitField } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const fs = require('fs');
+var colors = require('colors');
+const pink = colors.magenta
+const log = console.log;
 
 const csvFilePath=('./Takumi.csv')
 const csv=require('csvtojson')
@@ -15,7 +18,7 @@ module.exports = {
     // https://discordjs.guide/interactions/slash-commands.html#options
     run: async (client, interaction) => {
         const guild = client.guilds.cache.get(guildId);
-        csv().fromFile('./Takumi.csv').then(jsonObj => {
+        csv().fromFile(csvFilePath).then(jsonObj => {
             //console.log(jsonObj)
             // Iterate through each row in the JSON object
             jsonObj.forEach(row => {
@@ -30,9 +33,9 @@ module.exports = {
                 if (member) {
                     // Add the role to the user
                     member.roles.add(role);
-                    console.log(`Assigned role ${role} to ${discordUser}/${member}`);
+                    log(`Assigned role` + pink(` ${role}`) + 'to' + pink(` ${discordUser}/${member}`));
                 } else {
-                    console.log(`Could not assign ${role} to ${discordUser}/${member}`);
+                    log(`Could not assign` + pink(` ${role}`) + `to` + pink(` ${discordUser}/${member}`));
                 }
             });
         });
