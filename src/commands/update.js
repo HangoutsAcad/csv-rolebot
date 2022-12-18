@@ -16,6 +16,7 @@ module.exports = {
     run: async (client, interaction) => {
         const guild = client.guilds.cache.get(guildId);
         csv().fromFile('./Takumi.csv').then(jsonObj => {
+            console.log(jsonObj)
             // Iterate through each row in the JSON object
             jsonObj.forEach(row => {
                 // Get the Discord user and role from the row
@@ -28,10 +29,10 @@ module.exports = {
                 // Check if the user was found
                 if (member) {
                     // Add the role to the user
-                    member.roles.add(role);
-                    console.log(`Assigned role ${role} to ${discordUser}`);
+                    member.roles.cache.add(role);
+                    console.log(`Assigned role ${role} to ${discordUser}/${member}`);
                 } else {
-                    console.log(`Could not find user ${discordUser}`);
+                    console.log(`Could not assign ${role} to ${discordUser}/${member}`);
                 }
             });
         });
