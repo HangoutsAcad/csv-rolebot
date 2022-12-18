@@ -34,7 +34,7 @@ client.on("ready", async () => {
         } catch (error) {
             console.error(error);
         }
-    log(`Hangouts Roles has started up!`);
+    log(`${client.user.tag} has started up!`);
 
         //delete commands
 
