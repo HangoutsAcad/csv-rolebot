@@ -16,7 +16,7 @@ module.exports = {
     run: async (client, interaction) => {
         const guild = client.guilds.cache.get(guildId);
         csv().fromFile('./Takumi.csv').then(jsonObj => {
-            console.log(jsonObj)
+            //console.log(jsonObj)
             // Iterate through each row in the JSON object
             jsonObj.forEach(row => {
                 // Get the Discord user and role from the row
