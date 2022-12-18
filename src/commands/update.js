@@ -21,15 +21,15 @@ module.exports = {
             jsonObj.forEach(row => {
                 // Get the Discord user and role from the row
                 const discordUser = row['Discord'];
-                const role = row['Rank'];
+                const role = row['Rank ID'];
 
                 // Get the actual Discord user object by their username
-                const member = guild.members.cache.find(m => m.user.username === discordUser);
+                const member = guild.members.cache.find(m => m.user.tag === discordUser);
 
                 // Check if the user was found
                 if (member) {
                     // Add the role to the user
-                    member.roles.cache.add(role);
+                    member.roles.add(role);
                     console.log(`Assigned role ${role} to ${discordUser}/${member}`);
                 } else {
                     console.log(`Could not assign ${role} to ${discordUser}/${member}`);
