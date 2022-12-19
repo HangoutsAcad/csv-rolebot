@@ -45,12 +45,13 @@ module.exports = {
                 if (member) {
                     rolesToRemove.forEach(r => {
                         member.roles.remove(r);
+                        log(`Removed ${r} from ${discordUser}`)
                     });
                     // Add the role to the user
-                    member.roles.add(role);
-                    log(`Assigned role` + pink(` ${pretty} (${role})`) + ' to' + pink(` ${discordUser}/${member}`));
-                    message.channel.send(`Assigned ${pretty} to ${discordUser}`)
-                } else {
+                        member.roles.add(role);
+                        log(`Assigned role` + pink(` ${pretty} (${role})`) + ' to' + pink(` ${discordUser}/${member}`));
+                        message.channel.send(`Assigned ${pretty} to ${discordUser}`)
+                    } else {
                     //log(`Could not assign` + pink(` ${pretty} (${role})`) + ` to` + pink(` ${discordUser}/${member}`));
                     filelog(`Could not assign ${pretty} (${role}) to ${discordUser} (${member})`, `./logs/${timestamp}.log`)
                 }
