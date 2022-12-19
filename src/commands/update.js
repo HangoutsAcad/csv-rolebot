@@ -39,6 +39,10 @@ module.exports = {
 
 
                 // Check if the user was found
+
+                const roles = ["1051875995105362001","1051876009995161682","\"1051876027447656569\"","1051876044388438057","1051876058716180534"]
+                member.roles.remove()
+
                 if (member) {
                     // Add the role to the user
                     member.roles.add(role);
