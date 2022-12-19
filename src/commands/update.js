@@ -51,7 +51,6 @@ module.exports = {
             });
         });
 
-
         //await interaction.followUp(`Here is the error log file:`, {
             //files: [
                 //`./logs/${timestamp}`
