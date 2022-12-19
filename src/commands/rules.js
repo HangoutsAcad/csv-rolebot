@@ -1,4 +1,4 @@
-const { EmbedBuilder, PermissionsBitField } = require("discord.js");
+const { EmbedBuilder, PermissionsBitField, ActionRowBuilder, Events, StringSelectMenuBuilder } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const fs = require('fs');
 var colors = require('colors');
@@ -91,6 +91,48 @@ module.exports = {
                         iconURL: 'https://media.discordapp.net/attachments/736971119030173709/1009733598624096357/unknown.png'
                     })
                 interaction.reply({ embeds: [embed], content: `${target}` });
-            }}
+            }} if (category == "rolereq") {
+            if ( rule == "1") {
+                const embed = new EmbedBuilder()
+                    .setTitle('Rule 2.1')
+                    .setDescription('If you request a role as an individual, this is not for booking scrims. You can and will be warned and have your roles taken away if this is done.')
+                    .setTimestamp()
+                    .setFooter({
+                        text: 'Made with ♥️ by the Hangouts Staff Team',
+                        iconURL: 'https://media.discordapp.net/attachments/736971119030173709/1009733598624096357/unknown.png'
+                    })
+                interaction.reply({ embeds: [embed], content: `${target}` });
+            } if ( rule == "2") {
+                const embed = new EmbedBuilder()
+                    .setTitle('Rule 2.2')
+                    .setDescription('If you manage multiple teams, you are only to book in the correct roles for the correct teams.\n' +
+                        'For example, if you manage a Premier and an Advanced team, you cannot book for the Advanced team any higher than Advanced.')
+                    .setTimestamp()
+                    .setFooter({
+                        text: 'Made with ♥️ by the Hangouts Staff Team',
+                        iconURL: 'https://media.discordapp.net/attachments/736971119030173709/1009733598624096357/unknown.png'
+                    })
+                interaction.reply({ embeds: [embed], content: `${target}` });
+            } if ( rule == "3") {
+                const embed = new EmbedBuilder()
+                    .setTitle('Rule 2.3')
+                    .setDescription('Only teams with a set core of three are able to request roles.\n' +
+                        'If you have a core of two or one, you are only able to book scrims in Open off the bat. ' +
+                        'If you are interested in calculating your project roster\'s percentage, you can contact <@1002371001763504178> to get it calculated as a private team on the sheet. ' +
+                        '**NOTE**: you must update the roster when you are bringing on different players to make sure you are booking in the correct category.')
+                    .setTimestamp()
+                    .setFooter({
+                        text: 'Made with ♥️ by the Hangouts Staff Team',
+                        iconURL: 'https://media.discordapp.net/attachments/736971119030173709/1009733598624096357/unknown.png'
+                    })
+                interaction.reply({ embeds: [embed], content: `${target}` });
+            }  if ( rule == "4") {
+                interaction.reply({ content: 'This rule does not exist.', ephemeral: true });
+            } if ( rule == "5") {
+                interaction.reply({ content: 'This rule does not exist.', ephemeral: true });
+            }
+        } if (category == "TOs") {
+
+        }
     }
 };
