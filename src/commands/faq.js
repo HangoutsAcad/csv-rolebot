@@ -18,16 +18,16 @@ module.exports = {
             .setDescription('Which question do you want to recall?')
             .setRequired(true)
             .addChoices(
-                { name: '1', value: '1' },
-                { name: '2', value: '2' },
-                { name: '3', value: '3' },
-                { name: '4', value: '4' },
-                { name: '5', value: '5' },
-                { name: '6', value: '6' },
-                { name: '7', value: '7' },
-                { name: '8', value: '8' },
-                { name: '9', value: '9' },
-                { name: '10', value: '10' },
+                { name: 'What is the sheet?', value: '1' },
+                { name: 'How do you get on the sheet?', value: '2' },
+                { name: 'How are the rankings calculated?', value: '3' },
+                { name: 'What do the percentages mean?', value: '4' },
+                { name: 'Why do we use RiB?', value: '5' },
+                { name: 'When will the sheet be updated?', value: '6' },
+                { name: 'How can I calculate my rating?', value: '7' },
+                { name: 'What is RiB?', value: '8' },
+                { name: 'What events are covered?', value: '9' },
+                { name: 'I need help', value: '10' },
             ))
         .addUserOption(option => option.setName('target').setDescription('Target user').setRequired(true)),
     // https://discordjs.guide/interactions/slash-commands.html#options
