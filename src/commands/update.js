@@ -14,6 +14,8 @@ const filelog = require('log-to-file');
 const moment = require("moment");
 const timestamp = moment().format("DD-MM-HH_mm-ss")
 
+const rolesToRemove = ["1051875995105362001", "1051876009995161682","1051876027447656569","1051876044388438057","1051876058716180534"]
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("update")
@@ -40,10 +42,10 @@ module.exports = {
 
                 // Check if the user was found
 
-                const roles = ["1051875995105362001","1051876009995161682","\"1051876027447656569\"","1051876044388438057","1051876058716180534"]
-                member.roles.remove()
-
                 if (member) {
+                    rolesToRemove.forEach(r => {
+                        member.roles.remove(r);
+                    });
                     // Add the role to the user
                     member.roles.add(role);
                     log(`Assigned role` + pink(` ${pretty} (${role})`) + ' to' + pink(` ${discordUser}/${member}`));
