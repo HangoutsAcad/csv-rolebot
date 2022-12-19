@@ -46,6 +46,7 @@ module.exports = {
                     rolesToRemove.forEach(r => {
                         member.roles.remove(r);
                         log(`Removed ${r} from ${discordUser}`)
+                        message.channel.send(`Removed ${r} from ${discordUser}`)
                     });
                     // Add the role to the user
                         member.roles.add(role);
