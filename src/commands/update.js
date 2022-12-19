@@ -10,6 +10,9 @@ const csv=require('csvtojson')
 const config = require("../config");
 const guildId = config.guildid
 
+const filelog = require('log-to-file');
+const moment = require("moment");
+const timestamp = moment().format("DD-MM-HH_mm-ss")
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -43,6 +46,7 @@ module.exports = {
                     message.channel.send(`Assigned ${pretty} to ${discordUser}`)
                 } else {
                     //log(`Could not assign` + pink(` ${pretty} (${role})`) + ` to` + pink(` ${discordUser}/${member}`));
+                    filelog(`Could not assign ${pretty} (${role}) to ${discordUser} (${member})`, `./logs/${timestamp}.log`)
                 }
             });
         });
