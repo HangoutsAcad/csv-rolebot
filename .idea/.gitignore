@@ -7,3 +7,7 @@
 /dataSources/
 /dataSources.local.xml
 /src/config.js
+
+/node_modules/
+src/config.js
+.log
