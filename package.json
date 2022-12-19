@@ -14,5 +14,20 @@
     "moment": "^2.29.4",
     "os": "^0.1.2",
     "path": "^0.12.7"
-  }
+  },
+  "name": "csv-rolebot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HangoutsAcad/csv-rolebot.git"
+  },
+  "author": "ash-development",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/HangoutsAcad/csv-rolebot/issues"
+  },
+  "homepage": "https://github.com/HangoutsAcad/csv-rolebot#readme",
+  "description": ""
 }
