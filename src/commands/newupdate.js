@@ -21,7 +21,33 @@ module.exports = {
     //.setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
     // https://discordjs.guide/interactions/slash-commands.html#options
     run: async (client, interaction) => {
+        const rolesToRemove = ['role1', 'role2', 'role3'];
 
+        csv().fromFile(csvFilePath).then((json) => {
+                const guild = client.guilds.cache.first();
+                const members = guild.members.cache;
+                members.forEach((member) => {
+                    const roleData = json.find((data) => data.Discord === member.user.username);
+                    if (roleData) {
+                        const role = guild.roles.cache.get(roleData.RankID);
+                        if (role) {
+                            // remove the roles specified in the list
+                            rolesToRemove.forEach((roleId) => {
+                                const r = guild.roles.cache.get(roleId);
+                                if (r) {
+                                    member.roles.remove(r);
+                                    log(`${r} removed from ${member}`)
+                                }
+                            });
+                            // apply the role specified in the CSV file if the member does not already have it
+                            if (!member.roles.cache.has(role.id)) {
+                                member.roles.add(role);
+                                log(`${r} added to ${member}`)
+                            }
+                        }
+                    }
+                });
+        });
     }
 }
 
