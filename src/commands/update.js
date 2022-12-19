@@ -15,6 +15,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("update")
         .setDescription("Update the server's roles."),
+        //.setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
     // https://discordjs.guide/interactions/slash-commands.html#options
     run: async (client, interaction) => {
         const guild = client.guilds.cache.get(guildId);
