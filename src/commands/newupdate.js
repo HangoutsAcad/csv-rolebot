@@ -46,7 +46,7 @@ module.exports = {
             members.forEach((member) => {
 
                 if (!member.roles.cache.has(role.id)) {
-                    await member.roles.add(role);
+                    member.roles.add(role);
                     log(`${r} added to ${member}`)
                 }
             });
